@@ -1,0 +1,146 @@
+
+export const getPageQuery  = `
+    query PageQuery($documentId: ID!) {
+    page(documentId: $documentId) {
+        name
+        seo {
+            id
+            metaTitle
+            metaDescription
+            shareImage {
+                alternativeText
+                url
+            }
+        }
+        slug
+        components {
+            ... on ComponentBlockHero {
+                __typename
+                id
+                title
+                text
+                button {
+                    id
+                    theme
+                    link {
+                        id
+                        link
+                        label
+                        target
+                    }
+                }
+                images {
+                    alternativeText
+                    url
+                }
+            }
+            ... on ComponentBlockServices {
+                __typename
+                id
+                name
+                title
+                text
+                serviceCard {
+                    id
+                    title
+                    text
+                    image {
+                        url
+                        alternativeText
+                    }
+                }
+            }
+            ... on ComponentBlockTeam {
+                __typename
+                id
+                name
+                title
+                text
+                cards {
+                    id
+                    name
+                    post
+                    image {
+                        url
+                        alternativeText
+                    }
+                }
+            }
+            ... on ComponentBlockCta {
+                __typename
+                id
+                title
+                button {
+                    theme
+                    link {
+                        label
+                        link
+                        target
+                    }
+                }
+                image {
+                    url
+                    alternativeText
+                }
+            }
+            ... on ComponentBlockBlog {
+                __typename
+                id
+                name
+                title
+                articles_connection {
+                    nodes {
+                        cover {
+                            alternativeText
+                            url
+                        }
+                        slug
+                        title
+                        publishedAt
+                    }
+                }
+                articles {
+                    slug
+                    title
+
+                }
+                button {
+                    id
+                    theme
+                    link {
+                        id
+                        link
+                        label
+                        target
+                    }
+                }
+            }
+            ... on ComponentBlockAbout {
+                __typename
+                id
+                name
+                title
+                text
+                button {
+                    id
+                    theme
+                    link {
+                        id
+                        link
+                        label
+                        target
+                    }
+                }
+                image {
+                    url
+                    alternativeText
+                }
+            }
+            ... on Error {
+                code
+                message
+            }
+        }
+    }
+}
+`

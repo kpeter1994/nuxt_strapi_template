@@ -1,0 +1,137 @@
+query PagesQuery {
+    pages {
+        name
+        seo {
+            id
+            metaTitle
+            metaDescription
+            shareImage {
+                alternativeText
+                url
+            }
+        }
+        slug
+        components {
+            ... on ComponentBlockHero {
+                id
+                title
+                text
+                button {
+                    id
+                    theme
+                    link {
+                        id
+                        link
+                        label
+                        target
+                    }
+                }
+                images {
+                    alternativeText
+                    url
+                }
+            }
+            ... on ComponentBlockServices {
+                id
+                name
+                title
+                text
+                serviceCard {
+                    id
+                    title
+                    text
+                    image {
+                        url
+                        alternativeText
+                    }
+                }
+            }
+            ... on ComponentBlockTeam {
+                id
+                name
+                title
+                text
+                cards {
+                    id
+                    name
+                    post
+                    image {
+                        url
+                        alternativeText
+                    }
+                }
+            }
+            ... on ComponentBlockCta {
+                id
+                title
+                button {
+                    theme
+                    link {
+                        label
+                        link
+                        target
+                    }
+                }
+                image {
+                    url
+                    alternativeText
+                }
+            }
+            ... on ComponentBlockBlog {
+                id
+                name
+                title
+                articles_connection {
+                    nodes {
+                        cover {
+                            alternativeText
+                            url
+                        }
+                        slug
+                        title
+                        publishedAt
+                    }
+                }
+                articles {
+                    slug
+                    title
+
+                }
+                button {
+                    id
+                    theme
+                    link {
+                        id
+                        link
+                        label
+                        target
+                    }
+                }
+            }
+            ... on ComponentBlockAbout {
+                id
+                name
+                title
+                text
+                button {
+                    id
+                    theme
+                    link {
+                        id
+                        link
+                        label
+                        target
+                    }
+                }
+                image {
+                    url
+                    alternativeText
+                }
+            }
+            ... on Error {
+                code
+                message
+            }
+        }
+    }
+}

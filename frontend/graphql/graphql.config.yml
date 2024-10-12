@@ -1,0 +1,9 @@
+schema: "http://localhost:1337/graphql"
+documents: '**/*.graphql'
+extensions:
+  codegen:
+    generates:
+      ./src/types.ts:
+        plugins:
+          - typescript
+          - typescript-resolvers
