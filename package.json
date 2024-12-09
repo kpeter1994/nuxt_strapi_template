@@ -7,11 +7,16 @@
     "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "start:backend": "cd backend && npm run develop",
     "start:frontend": "cd frontend && npm run dev",
-    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+    "start:watcher": "node watcher.cjs",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\" \"npm run start:watcher\""
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^9.0.1"
+  },
+  "dependencies": {
+    "chokidar": "^4.0.1",
+    "fs-extra": "^11.2.0"
   }
 }
